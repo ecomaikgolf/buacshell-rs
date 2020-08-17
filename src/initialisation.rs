@@ -1,13 +1,13 @@
-use libknox::{VaultContext, Entry};
+use libknox::{Entry, VaultContext};
 use rpassword;
 
 use colorful::{Color, Colorful};
 
-use std::process::Command;
-use std::io::Write;
-use std::io::prelude::Read;
-//use std::fs;
 use dirs;
+use std::fs;
+use std::io::prelude::Read;
+use std::io::Write;
+use std::process::Command;
 
 /// Inits the database if doesn't exist
 pub fn auto_init() {
@@ -48,14 +48,21 @@ fn initialise_db() {
     print!("\x1B[2J\x1B[1;1H");
 
     /* Banner */
-    //let figlet = fs::read_to_string("resources/figlet").expect("error");
-    //println!(
-        //"{}",
-        //figlet.gradient_with_color(
-            //colorful::RGB::new(84, 51, 255),
-            //colorful::RGB::new(165, 254, 203),
-        //)
-    //);
+    let figlet = fs::read_to_string(format!(
+        "{}/.config/buacshell-rs/figlet",
+        dirs::home_dir()
+            .unwrap_or(std::path::PathBuf::new())
+            .to_str()
+            .unwrap()
+    )).unwrap();
+
+    println!(
+        "{}",
+        figlet.gradient_with_color(
+            colorful::RGB::new(84, 51, 255),
+            colorful::RGB::new(165, 254, 203),
+        )
+    );
 
     /* secure database location (relative to $PATH) */
     let libknox_location = format!(
@@ -89,9 +96,9 @@ fn initialise_db() {
     let mut gpg_email = String::new();
     print!("{}", "[>] Email: ".color(Color::Blue));
     std::io::stdout().flush().unwrap();
-    std::io::stdin().read_line(&mut gpg_email).expect(
-        "IO Error",
-    );
+    std::io::stdin()
+        .read_line(&mut gpg_email)
+        .expect("IO Error");
     gpg_email.pop();
 
     /* TODO
