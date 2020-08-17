@@ -6,7 +6,7 @@ use colorful::{Color, Colorful};
 use std::process::Command;
 use std::io::Write;
 use std::io::prelude::Read;
-use std::fs;
+//use std::fs;
 use dirs;
 
 /// Inits the database if doesn't exist
@@ -48,14 +48,14 @@ fn initialise_db() {
     print!("\x1B[2J\x1B[1;1H");
 
     /* Banner */
-    let figlet = fs::read_to_string("resources/figlet").expect("error");
-    println!(
-        "{}",
-        figlet.gradient_with_color(
-            colorful::RGB::new(84, 51, 255),
-            colorful::RGB::new(165, 254, 203),
-        )
-    );
+    //let figlet = fs::read_to_string("resources/figlet").expect("error");
+    //println!(
+        //"{}",
+        //figlet.gradient_with_color(
+            //colorful::RGB::new(84, 51, 255),
+            //colorful::RGB::new(165, 254, 203),
+        //)
+    //);
 
     /* secure database location (relative to $PATH) */
     let libknox_location = format!(
