@@ -115,6 +115,7 @@ $ buacshell-rs reinit
 ```
 
 ## TODO
-- [] Better strings (&str or Box<str> instead of String in bua.rs)
-- [] Check if GPG Key exists in initialisation.rs
-- [] Why `get_loans(dni: &str, nip: &str` in bua.rs is reading one book (iteration) of "garbage" (line 218)
+- [ ] Better strings (&str or Box<str> instead of String in bua.rs)
+- [ ] Check if GPG Key exists in initialisation.rs
+- [ ] Why `get_loans(dni: &str, nip: &str` in bua.rs is reading one book (iteration) of "garbage" (line 218)
+- [ ] Change GPG Key selector to a numerical selection ¿?
