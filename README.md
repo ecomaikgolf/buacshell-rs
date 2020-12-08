@@ -1,4 +1,4 @@
-# BUACShell 
+# BUACShell [Deprecated]
 This project is a Rust port from [BUACShell](https://github.com/ecomaikgolf/BUACShell) with a better password handling
 
 ## Installation
